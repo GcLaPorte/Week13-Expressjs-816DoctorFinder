@@ -5,11 +5,6 @@ var bodyParser = require("body-parser");
 var app = express();
 
 
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
-
-
-
 
 
 var PORT = process.env.PORT || 3000;
@@ -18,6 +13,8 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // app.get("/", function(req, res) {
 //   res.sendFile(path.join(__dirname, "/app/public/home.html"));

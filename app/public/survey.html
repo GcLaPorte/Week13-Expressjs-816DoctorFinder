@@ -230,14 +230,18 @@
   <br>
   <br>
 
+  <h2 align="center">Your new doctor is:</h2>
+  <!-- <h2>Your new doctor is:</h2> -->
+    
+  <br>
 
   <div ID="results">
     <H2 id="user"></H2>
     <img class="rounded float-left" alt="..." ID="leftImg" height="350" width="350">
 
 
-    <h2 align="right" >Your new doctor is:</h2>
-    <H2 id="match-name"></H2>
+    
+    <H2 align="right"id="match-name"></H2>
     <img class="rounded float-right" alt="..." ID="rightImg" height="350" width="350">
 
   </div>
@@ -367,7 +371,7 @@
 
 
 
-function yourDoctoris(userData) {
+  function yourDoctoris(userData) {
     var userName = userData.name;
     var userPic = userData.photo;
 
@@ -376,8 +380,8 @@ function yourDoctoris(userData) {
     $("#user").text(userName);
     $("#leftImg").attr('src', userPic);
 
-    $.post("/api/doctors",{ userData: userData }, function (doctorData) {
-        console.log(doctorData);
+    $.post("/api/doctors", { userData: userData }, function (doctorData) {
+      console.log(doctorData);
 
       // Grab the result from the AJAX post so that the best match's name and photo are displayed.
       $("#match-name").text(doctorData.name);
@@ -385,11 +389,13 @@ function yourDoctoris(userData) {
 
       // Show the modal with the best match
       $("#results-modal").modal("toggle");
+
+      console.log(doctorData.name);
+      console.log(doctorData.photo);
     });
 
-    console.log(doctorData.name);
-    console.log(doctorData.photo);
-};
+
+  };
 
 
   // function yourDoctoris(userData) {

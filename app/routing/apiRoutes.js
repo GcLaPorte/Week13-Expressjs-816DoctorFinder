@@ -5,7 +5,7 @@ var doctors = require("../data/doctors");
 module.exports = function(app) {
 
 
-  app.get("doctors", function(req, res) {
+  app.get("/api/doctors", function(req, res) {
     res.json(doctors);
   });
 
@@ -19,8 +19,8 @@ module.exports = function(app) {
       doctorDifference: Infinity
     };
 
-    console.log(req.body)
-    var userData = req.body;
+    console.log(req.body.userData)
+    var userData = req.body.userData;
     var userScores = userData.scores;
 
   
@@ -47,6 +47,8 @@ module.exports = function(app) {
         doctorData.name = yourDoctor.name;
         doctorData.photo = yourDoctor.photo;
         doctorData.doctorDifference = totalDifference;
+
+        
       }
     }
 
