@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-// var path = require("path");
+var path = require("path");
 
 var app = express();
 
@@ -24,6 +24,7 @@ require("./app/routing/htmlRoutes")(app);
 //   res.sendFile(path.join(__dirname, "/app/public/survey.html"));
 //   });
 
+app.use(express.static(path.join(__dirname, "js")));
 
 
 

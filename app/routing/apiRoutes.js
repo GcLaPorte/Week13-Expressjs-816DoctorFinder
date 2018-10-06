@@ -30,22 +30,22 @@ module.exports = function(app) {
       var yourDoctor = doctors[i];
       totalDifference = 0;
 
-      console.log(yourDoctor.name);
+      console.log(doctors.name);
 
      
-      for (var j = 0; j < yourDoctor.scores.length; j++) {
+      for (var j = 0; j < doctors[i].scores[j]; j++) {
         var doctorResult = yourDoctor.scores[j];
-        var yourDoctorScore = userScores[j];
+        // var yourDoctorScore = userScores[j];
 
        
-        totalDifference += Math.abs(parseInt(yourDoctorScore) - parseInt(doctorResult));
+        totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(doctors[i].scores[j]));
       }
 
       
       if (totalDifference <= doctorData.doctorDifference) {
         // Reset the bestMatch to be the new friend.
-        doctorData.name = yourDoctor.name;
-        doctorData.photo = yourDoctor.photo;
+        doctorData.name = doctors[i].name;
+        doctorData.photo = doctors[i].photo;
         doctorData.doctorDifference = totalDifference;
 
         
